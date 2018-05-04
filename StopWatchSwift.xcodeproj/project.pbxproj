@@ -25,6 +25,7 @@
 		377EB6AC209AFB350024C5D6 /* TheTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377EB6AB209AFB350024C5D6 /* TheTimerViewController.swift */; };
 		377EB6AE209AFF1B0024C5D6 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377EB6AD209AFF1B0024C5D6 /* AddViewController.swift */; };
 		377EB6B0209B1B870024C5D6 /* SynTimePlistFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 377EB6AF209B1B870024C5D6 /* SynTimePlistFile.plist */; };
+		377EB6F3209C42490024C5D6 /* WJPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377EB6F2209C42490024C5D6 /* WJPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		377EB6AB209AFB350024C5D6 /* TheTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheTimerViewController.swift; sourceTree = "<group>"; };
 		377EB6AD209AFF1B0024C5D6 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		377EB6AF209B1B870024C5D6 /* SynTimePlistFile.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SynTimePlistFile.plist; sourceTree = "<group>"; };
+		377EB6F2209C42490024C5D6 /* WJPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJPickerView.swift; sourceTree = "<group>"; };
 		61D5EA9C6E9E61C0DDFE43B7 /* Pods-StopWatchSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StopWatchSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StopWatchSwift/Pods-StopWatchSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		9F4ACD2EC7779114B093AC86 /* libPods-StopWatchSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StopWatchSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51632096E42618D23D8EE9C /* Pods-StopWatchSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StopWatchSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-StopWatchSwift/Pods-StopWatchSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				377EB6A9209AFB200024C5D6 /* StopWatchViewController.swift */,
 				377EB6AB209AFB350024C5D6 /* TheTimerViewController.swift */,
 				377EB6AD209AFF1B0024C5D6 /* AddViewController.swift */,
+				377EB6F2209C42490024C5D6 /* WJPickerView.swift */,
 				377EB65D2099AF0F0024C5D6 /* Main.storyboard */,
 				377EB6632099AF0F0024C5D6 /* Assets.xcassets */,
 				377EB6AF209B1B870024C5D6 /* SynTimePlistFile.plist */,
@@ -381,6 +384,7 @@
 				377EB6AA209AFB200024C5D6 /* StopWatchViewController.swift in Sources */,
 				377EB65A2099AF0F0024C5D6 /* AppDelegate.swift in Sources */,
 				377EB6AC209AFB350024C5D6 /* TheTimerViewController.swift in Sources */,
+				377EB6F3209C42490024C5D6 /* WJPickerView.swift in Sources */,
 				377EB6A8209AFB0D0024C5D6 /* AlarmViewController.swift in Sources */,
 				377EB69B209AB9100024C5D6 /* BaseNavController.swift in Sources */,
 				377EB6A6209AFAF90024C5D6 /* WorldTimeViewController.swift in Sources */,
@@ -559,7 +563,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WJ.StopWatchSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wj/Desktop/swiftDemo/StopWatchSwift/StopWatchSwift/Header-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wj/StopWatch/StopWatchSwift/Header-Briding-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -579,7 +583,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WJ.StopWatchSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wj/Desktop/swiftDemo/StopWatchSwift/StopWatchSwift/Header-Briding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wj/StopWatch/StopWatchSwift/Header-Briding-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
