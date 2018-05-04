@@ -1,0 +1,6 @@
+framework module Pods_StopWatchSwift {
+  umbrella header "Pods-StopWatchSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
