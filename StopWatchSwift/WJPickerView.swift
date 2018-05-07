@@ -80,6 +80,8 @@ class WJPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
             hourStr = hourArr[row % hourArr.count] as! String
         }else if component == 2 {
             minuteStr = minuteArr[row % minuteArr.count] as! String
+        }else if component == 1 {
+
         }
     }
     

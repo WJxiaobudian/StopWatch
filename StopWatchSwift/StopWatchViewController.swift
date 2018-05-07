@@ -27,6 +27,7 @@ class StopWatchViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.init(hexColor: "f8f8f8")
+        
         self.title = "秒表"
         SetbackView()
         SetBigTimer()
@@ -54,7 +55,7 @@ class StopWatchViewController: UIViewController, UITableViewDelegate {
         backView.backgroundColor = UIColor.white
         self.view.addSubview(backView)
         backView.mas_makeConstraints { (make:MASConstraintMaker!) in
-            make!.top.equalTo()(64)
+            make!.top.equalTo()(HEIGHT_NAVBAR)
             make!.left.equalTo()(0)
             make!.right.equalTo()(self.view)
             make!.height.equalTo()(150)
