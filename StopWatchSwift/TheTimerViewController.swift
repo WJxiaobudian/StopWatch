@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TheTimerViewController: UIViewController{
     
-    fileprivate let mainStopwatch:Stopwatch = Stopwatch()
-    private var isplay:Bool = false
+     let mainStopwatch:Stopwatch = Stopwatch()
+     var isplay:Bool = false
     private var ispause:Bool = false
     private let stopButton = UIButton.init(type: .custom)
     private let startButton = UIButton.init(type: .custom)
     private let backView = UIView()
     private let backLabel = UILabel()
     private var dateTimer:UIDatePicker!
-   
     private var countTimer = TimeInterval()
+    private var timeStamp = TimeInterval()
     
     var hour:Int?
     var minute:Int?
@@ -30,6 +31,22 @@ class TheTimerViewController: UIViewController{
         self.view.backgroundColor = UIColor.init(hexColor: "f8f8f8")
         stopButton.isEnabled = false
         setupPickerView()
+
+        let content = UNMutableNotificationContent()
+        content.title = "1231231231231231231231231312312313123112121231231231321"
+        content.body = "fileprivate let mainStopwatch:Stopwatch = Stopwatch()private var isplay:Bool = falsprivate var ispause:Bool = false   private let stopButton = UIButton.init(type: .custom)     private let startButton = UIButton.init(type: .custom)      private let backView = UIView()    private let backLabel = UILabel()private var dateTimer:UIDatePicker!"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let requestIndentifier = "com.hangge.testNotification"
+        let request = UNNotificationRequest(identifier: requestIndentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error == nil {
+                print("Time Interval Notification scheduled: \(requestIndentifier)")
+            }
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        
         
     }
     
@@ -178,11 +195,11 @@ class TheTimerViewController: UIViewController{
         let d = dformatter.date(from: tempDate)
         //当前时间的时间戳
         let timeInterval:TimeInterval = d!.timeIntervalSince1970
-        let timeStamp = Int(timeInterval)
+        timeStamp = timeInterval
         print("当前时间的时间戳：\(timeStamp)")
         print("\(countTimer)")
         
-        if countTimer - TimeInterval(timeStamp) > 0 {
+        if Int(countTimer - timeStamp) > 0 {
             countTimer -= 1
         } else {
             mainStopwatch.timer.invalidate()
@@ -210,5 +227,35 @@ class TheTimerViewController: UIViewController{
         button .setTitle(title, for: UIControlState())
         button .setTitleColor(titleColor, for: UIControlState())
     }
-
+    
+    func didEnterBackground(){
+        saveCurrentTime()
+    }
+    
+    func didBecomeActive(){
+        loadLastRunTime()
+    }
+    
+    func saveCurrentTime(){ //保存进入后台的时间
+        let stopRunTime = Date()
+        UserDefaults.standard.set(stopRunTime, forKey: "stopRunTime")
+        print("\(countTimer)")
+    }
+    
+    func loadLastRunTime(){//加载上次进入后台的时间
+        let lastRunTime = UserDefaults.standard.object(forKey: "stopRunTime")
+        if lastRunTime != nil{
+            let stopRunTime = lastRunTime as! Date
+            let different = Date().timeIntervalSince(stopRunTime) //计算出上次与当前时间的时间间隔
+            print("\(different)")
+            if Int(countTimer - timeStamp - different) >= 0 {
+                countTimer -= different
+                let dfmatter = DateFormatter()
+                dfmatter.dateFormat="HH:mm:ss"
+                let date = NSDate(timeIntervalSince1970: countTimer)
+                let dateText = dfmatter.string(from: date as Date)
+                backLabel.text = dateText
+            }
+        }
+    }
 }
